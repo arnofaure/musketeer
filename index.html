@@ -1,0 +1,148 @@
+<!-- A tool reshaped by Arno Faure StudioNora.ca, based on the work of Justin Avery -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Musketeer</title>
+	<meta name="description" content="A simple tool to see how your site looks on desktop, laptop, tablet & mobile.">
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/style.css">
+
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+	<meta property="og:url" content="https://example.com/page.html">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Musketeer - See your website on 4 devices">
+	<meta property="og:image" content="https://example.com/image.jpg">
+	<meta property="og:description" content="A simple tool to see how your site looks on desktop, laptop, tablet & mobile.">
+	<meta property="og:site_name" content="Musketeer">
+	<meta property="og:locale" content="en_US">
+
+	<meta property="fb:app_id" content="123456789">
+	<meta property="og:url" content="https://example.com/page.html">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Musketeer - See your website on 4 devices">
+	<meta property="og:image" content="https://example.com/image.jpg">
+	<meta property="og:description" content="Description Here">
+	<meta property="og:site_name" content="Site Name">
+	<meta property="og:locale" content="en_US">
+	<meta property="article:author" content="">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@studio_nora">
+	<meta name="twitter:url" content="https://example.com/page.html">
+	<meta name="twitter:title" content="Musketeer - See your website on 4 devices">
+	<meta name="twitter:description" content="A simple tool to see how your site looks on desktop, laptop, tablet & mobile.">
+	<meta name="twitter:image" content="https://example.com/image.jpg">
+
+	<script src="http://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script src="http://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+	<section class="url">
+		<img id="m-logo" src="../images/Musketeer-logo+name.svg" alt="Musketeer Logo">
+		<h3>A simple tool to see how your site looks on desktop, laptop, tablet & mobile.</h3>
+		<form id="rwdform" name="rwdform">
+			<input type="url" id="url" name="url" value="" placeholder="http(s):// << don't forget!">
+			<a class="button" href="#" onClick="_gaq.push(['_trackEvent', 'RWD', 'URL', document.rwdform.url.value]);">Enter</a>
+		</form>
+
+		<div class="toFaq">
+			<a href="faq.html">?</a>
+		</div>
+
+	</section>
+
+	<div class="wrapper">
+		<section class="display">
+			<div class="mobile">
+				<iframe id="mobile" src="default.html">
+  </iframe>
+			</div>
+			<div class="tablet">
+				<iframe id="tablet" src="default.html">
+  </iframe>
+			</div>
+			<div class="laptop">
+				<iframe id="laptop" src="default.html">
+  </iframe>
+			</div>
+			<div class="desktop">
+				<iframe id="desktop" src="default.html">
+  </iframe>
+			</div>
+		</section>
+	</div>
+
+	<div class="clean-wrapper">
+		<div class="clean-button">
+			<svg id="ic-fs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M14 28h-4v10h10v-4h-6v-6zm-4-8h4v-6h6v-4H10v10zm24 14h-6v4h10V28h-4v6zm-6-24v4h6v6h4V10H28z"/></svg>
+
+			<svg id="ic-cancel" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm10 27.17L31.17 34 24 26.83 16.83 34 14 31.17 21.17 24 14 16.83 16.83 14 24 21.17 31.17 14 34 16.83 26.83 24 34 31.17z"/></svg>
+		</div>
+
+		<div class="info-clean">
+			<p>Click to HIDE the UI<br/>and take a beautiful screenshot</p>
+		</div>
+
+	</div>
+	<footer>
+		<p>A tool reshaped by <a href="https://studionora.ca" target="_blank">Arno Faure @Studio Nora</a>, based on the work of <a href="https://twitter.com/justinavery" target="_blank">Justin Avery</a></p>
+	</footer>
+
+	<script>
+		$(document).ready(function() {
+			$(".clean-button").click(function() {
+				$(".url").toggleClass("display-none");
+				$("footer").toggleClass("display-none");
+				$("#ic-fs").toggleClass("display-none");
+				$(".info-clean").toggleClass("display-none");
+				$(".toFaq").toggleClass("display-none");
+				$(".clean-button").toggleClass("small");
+				$("#ic-cancel").toggleClass("display-on");
+				$("body").toggleClass("white-bkg");
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			// Change iFrame on a Button Click Event
+			$(".button").click(function(event) {
+				$("iframe").attr('src', $('#url').val());
+			});
+		});
+	</script>
+
+	<script>
+		function getUrlVars() {
+			var vars = {};
+			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+				vars[key] = value;
+			});
+			return vars;
+		}
+		var first = getUrlVars()["url"];
+		var first = decodeURIComponent(first);
+		var first = first.replace(/\#$/, '');
+
+		if (first === "undefined") {
+			// don't do anything.
+		} else {
+			//  take the url variable and update the iframes and input field
+			$("iframe").attr('src', (first));
+			$('#url').attr('value', (first));
+		}
+	</script>
+
+</body>
+
+</html>
