@@ -5,4 +5,4 @@ Just enter the website address with http(s)//... and click or press "Enter" and 
 
 ![Musketeer Screenshot](screenshot.gif)
 
-This tool is based on the work of [Justin Avery's work](https://github.com/justincavery/am-i-responsive)
+This tool is based on the work of [Justin Avery](https://github.com/justincavery/am-i-responsive)
