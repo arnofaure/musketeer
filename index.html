@@ -1,4 +1,4 @@
-<!-- A tool reshaped by Arno Faure StudioNora.ca, based on the work of Justin Avery -->
+<!-- A tool reshaped by Arno Faure / NØRA, based on the work of Justin Avery -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-	<meta property="og:url" content="http://musketeer.website">
+	<meta property="og:url" content="https://example.com/page.html">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="Musketeer - See your website on 4 devices">
 	<meta property="og:image" content="https://dl.dropboxusercontent.com/u/9509646/Open%20Graph%20-%20Musketeer/Musketeer-OG.jpg">
@@ -24,30 +24,30 @@
 	<meta property="og:site_name" content="Musketeer">
 	<meta property="og:locale" content="en_US">
 
-	<meta property="fb:app_id" content="123456789">
-	<meta property="og:url" content="http://musketeer.website">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Musketeer - See your website on 4 devices">
-	<meta property="og:image" content="https://dl.dropboxusercontent.com/u/9509646/Open%20Graph%20-%20Musketeer/Musketeer-OG.jpg">
-	<meta property="og:description" content="Description Here">
-	<meta property="og:site_name" content="Site Name">
-	<meta property="og:locale" content="en_US">
-	<meta property="article:author" content="">
-
 	<meta name="twitter:card" content="summary">
-	<meta name="twitter:creator" content="@studio_nora">
-	<meta name="twitter:url" content="https://example.com/page.html">
+	<meta name="twitter:creator" content="@arnofaure">
+	<!-- <meta name="twitter:url" content="https://example.com/page.html"> -->
 	<meta name="twitter:title" content="Musketeer - See your website on 4 devices">
 	<meta name="twitter:description" content="A simple tool to see how your site looks on desktop, laptop, tablet & mobile.">
-	<meta name="twitter:image" content="https://example.com/image.jpg">
+	<meta name="twitter:image" content="https://dl.dropboxusercontent.com/u/9509646/Open%20Graph%20-%20Musketeer/Musketeer-OG.jpg">
 
 	<script src="http://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
 
+
+
 </head>
 
 <body>
+
+	<div id="no-mobile" class="flex-container">
+		<img class="flex-item" src="../images/Musketeer-logo+name.svg" alt="Musteker Logo">
+		<p>This tool is only available for the big screen.</p>
+	</div>
+
+
 	<section class="url">
+		</div>
 		<img id="m-logo" src="../images/Musketeer-logo+name.svg" alt="Musketeer Logo">
 		<h3>A simple tool to see how your site looks on desktop, laptop, tablet & mobile.</h3>
 		<form id="rwdform" name="rwdform">
@@ -60,6 +60,30 @@
 		</div>
 
 	</section>
+
+	<section class="select-device">
+		<div class="radio-wrapper">
+			<input type="radio" value="0" name="radiogroup" id="radio-1" class="radio">
+			<label for="radio-1">All</label>
+		</div>
+		<div class="radio-wrapper">
+			<input type="radio" value="1" name="radiogroup" id="radio-2" class="radio">
+			<label for="radio-2">Desktop</label>
+		</div>
+		<div class="radio-wrapper">
+			<input type="radio" value="2" name="radiogroup" id="radio-3" class="radio">
+			<label for="radio-3">Laptop</label>
+		</div>
+		<div class="radio-wrapper">
+			<input type="radio" value="3" name="radiogroup" id="radio-4" class="radio">
+			<label for="radio-4">Tablet</label>
+		</div>
+		<div class="radio-wrapper">
+			<input type="radio" value="4" name="radiogroup" id="radio-5" class="radio">
+			<label for="radio-5">Phone</label>
+		</div>
+	</section>
+
 
 	<div class="wrapper">
 		<section class="display">
@@ -90,16 +114,114 @@
 		</div>
 
 		<div class="info-clean">
-			<p>Click to HIDE the UI<br/>and take a beautiful screenshot</p>
+			<p>Click to hide the interface<br/>and take a beautiful screenshot</p>
 		</div>
 
 	</div>
-	<footer>
-		<p>A tool reshaped by <a href="https://studionora.ca" target="_blank">Arno Faure @Studio Nora</a>, based on the work of <a href="https://twitter.com/justinavery" target="_blank">Justin Avery</a></p>
-	</footer>
+	<!-- <footer>
+		<p>A tool reshaped by <a href="https://studionora.ca" target="_blank">Arno Faure / NØRA</a>, based on the work of <a href="https://twitter.com/justinavery" target="_blank">Justin Avery</a></p>
+	</footer> -->
 
 	<script>
+		$("input:radio[name=radiogroup][value=0]").trigger('click');
+
 		$(document).ready(function() {
+			$("input[name=radiogroup]:radio").click(function() {
+				if ($(this).val() == '0') {
+
+					$(".desktop").removeClass('desktop-solo display-none');
+					$(".laptop").removeClass('laptop-solo display-none');
+					$(".tablet").removeClass('tablet-solo display-none');
+					$(".mobile").removeClass('mobile-solo display-none');
+
+
+				} else if ($(this).val() == '1') {
+
+					if ($(".desktop").hasClass('display-none')) {
+						$(".desktop").toggleClass('display-none');
+					}
+					if ($(".desktop").not('desktop-solo')) {
+						$(".desktop").addClass('desktop-solo');
+					}
+
+					if ($(".mobile").not(".display-none")) {
+						$(".mobile").addClass("display-none");
+					}
+
+					if ($(".tablet").not(".display-none")) {
+						$(".tablet").addClass("display-none");
+					}
+
+					if ($(".laptop").not(".display-none")) {
+						$(".laptop").addClass("display-none");
+					}
+
+				} else if ($(this).val() == '2') {
+					if ($(".laptop").hasClass('display-none')) {
+						$(".laptop").toggleClass('display-none');
+					}
+					if ($(".laptop").not('laptop-solo')) {
+						$(".laptop").addClass('laptop-solo');
+					}
+
+					if ($(".mobile").not(".display-none")) {
+						$(".mobile").addClass("display-none");
+					}
+
+					if ($(".desktop").not(".display-none")) {
+						$(".desktop").addClass("display-none");
+					}
+
+					if ($(".tablet").not(".display-none")) {
+						$(".tablet").addClass("display-none");
+					}
+
+				} else if ($(this).val() == '3') {
+					if ($(".tablet").hasClass('display-none')) {
+						$(".tablet").toggleClass('display-none');
+					}
+
+					if ($(".tablet").not('tablet-solo')) {
+						$(".tablet").addClass('tablet-solo');
+					}
+
+					if ($(".mobile").not(".display-none")) {
+						$(".mobile").addClass("display-none");
+					}
+
+					if ($(".desktop").not(".display-none")) {
+						$(".desktop").addClass("display-none");
+					}
+
+					if ($(".laptop").not(".display-none")) {
+						$(".laptop").addClass("display-none");
+					}
+
+				} else if ($(this).val() == '4') {
+
+					if ($(".mobile").hasClass('display-none')) {
+						$(".mobile").removeClass('display-none');
+					}
+
+					if ($(".mobile").not('mobile-solo')) {
+						$(".mobile").addClass('mobile-solo');
+					}
+
+					if ($(".tablet").not(".display-none")) {
+						$(".tablet").addClass("display-none");
+					}
+
+					if ($(".desktop").not(".display-none")) {
+						$(".desktop").addClass("display-none");
+					}
+
+					if ($(".laptop").not(".display-none")) {
+						$(".laptop").addClass("display-none");
+					}
+
+				}
+			});
+
 			$(".clean-button").click(function() {
 				$(".url").toggleClass("display-none");
 				$("footer").toggleClass("display-none");
@@ -109,7 +231,9 @@
 				$(".clean-button").toggleClass("small");
 				$("#ic-cancel").toggleClass("display-on");
 				$("body").toggleClass("white-bkg");
+				$(".select-device").toggleClass("display-none");
 			});
+
 		});
 	</script>
 
@@ -142,6 +266,8 @@
 			$('#url').attr('value', (first));
 		}
 	</script>
+
+	<script async src="//cdn.headwayapp.co/widget.js"></script>
 
 </body>
 
