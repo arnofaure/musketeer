@@ -3,7 +3,7 @@ A simple tool to see how your site looks on desktop, laptop, tablet &amp; mobile
 
 Just enter the website address with http(s)//... and click or press "Enter" and be :)
 
-Here is the link: http://musketeer.website/
+Here is the link: https://arnofaure.github.io/musketeer/
 
 ## NEW FEATURE
 Now you can **display only the device** you like
